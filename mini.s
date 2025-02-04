@@ -29,7 +29,7 @@ _start: li a7, 0x4442434E
 
         call virtio_blk_read_request
 
-        bne a0, zero, loop
+        bne a3, zero, loop
         ecall
 
 loop:   j loop

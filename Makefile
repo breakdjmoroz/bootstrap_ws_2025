@@ -4,10 +4,11 @@ all: build
 build: link
 
 link: compile
-	riscv64-elf-ld request.o virt_queue.o hd_drive.o mini.o -T mini.ld -o mini.bin
+	riscv64-elf-ld merge.o mini.o -T mini.ld -o mini.bin
 
 compile:
 	riscv64-elf-as mini.s -o mini.o
 	riscv64-elf-as hd_drive.s -o hd_drive.o
 	riscv64-elf-as virt_queue.s -o virt_queue.o
 	riscv64-elf-as request.s -o request.o
+	riscv64-elf-as merge.s -o merge.o
